@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Amount</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="payment-container">
+    <h1>Payment Amount</h1>
+    <p id="payment-amount"></p>
+  </div>
+  <script>
+    function getPaymentAmount() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paymentAmount = urlParams.get('amount');
+      return paymentAmount;
+    }
+
+    function displayPaymentAmount(amount) {
+      const paymentAmountElement = document.getElementById('payment-amount');
+      if (amount) {
+        paymentAmountElement.textContent = `Your payment amount is $${amount}`;
+      } else {
+        paymentAmountElement.textContent = 'No payment amount specified.';
+      }
+    }
+
+    const paymentAmount = getPaymentAmount();
+    displayPaymentAmount(paymentAmount);
+  </script>
+</body>
+</html>
