@@ -12,15 +12,23 @@
     <p id="payment-amount"></p>
   </div>
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const paymentAmount = urlParams.get('amount');
-
-    const paymentAmountElement = document.getElementById('payment-amount');
-    if (paymentAmount) {
-      paymentAmountElement.textContent = `Your payment amount is $${paymentAmount}`;
-    } else {
-      paymentAmountElement.textContent = 'No payment amount specified.';
+    function getPaymentAmount() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paymentAmount = urlParams.get('amount');
+      return paymentAmount;
     }
+
+    function displayPaymentAmount(amount) {
+      const paymentAmountElement = document.getElementById('payment-amount');
+      if (amount) {
+        paymentAmountElement.textContent = `Your payment amount is $${amount}`;
+      } else {
+        paymentAmountElement.textContent = 'No payment amount specified.';
+      }
+    }
+
+    const paymentAmount = getPaymentAmount();
+    displayPaymentAmount(paymentAmount);
   </script>
 </body>
 </html>
