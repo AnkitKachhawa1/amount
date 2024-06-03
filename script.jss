@@ -13,19 +13,17 @@ function displayPaymentAmount(amount) {
   }
 }
 
-function openPaymentLink(amount) {
-  const baseUrl = "upi://pay?pa=9510074375@UPI&pn=ANKIT&cu=INR&am=";
-  const paymentLink = baseUrl + amount;
-  window.open(paymentLink, '_self');
-}
-
 const paymentAmount = getPaymentAmount();
 displayPaymentAmount(paymentAmount);
 
 const payLinkElement = document.getElementById('pay-link');
-payLinkElement.addEventListener('click', () => {
+payLinkElement.addEventListener('click', (event) => {
+  event.preventDefault(); // Prevent the default link behavior
+
   if (paymentAmount) {
-    openPaymentLink(paymentAmount);
+    const baseUrl = "upi://pay?pa=9510074375@UPI&pn=ANKIT&cu=INR&am=";
+    const paymentLink = baseUrl + paymentAmount;
+    location.href = paymentLink; // Redirect to the UPI payment link
   } else {
     alert('No payment amount specified.');
   }
