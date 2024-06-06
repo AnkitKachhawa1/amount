@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UPI Payment Link Generator</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    .link-container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .link-container a {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <label for="amount">Enter Amount:</label>
+      <input type="number" id="amountInput" placeholder="Enter amount">
+    </div>
+    <div class="link-container">
+      <button onclick="generateShareableLink()">Generate Shareable Link</button>
+      <a id="linkOutput" target="_blank" style="display: none;"></a>
+    </div>
+  </div>
+
+  <script>
+    function generateShareableLink() {
+      const amount = document.getElementById("amountInput").value;
+      const upiString = `upi://pay?pa=9510074375@UPI&pn=ANKIT&cu=INR&am=${amount}`;
+      const shareableLink = `https://example.com/payment.html?amount=${amount}`;
+      const linkOutput = document.getElementById("linkOutput");
+      linkOutput.href = shareableLink;
+      linkOutput.textContent = shareableLink;
+      linkOutput.style.display = "block";
+    }
+  </script>
+</body>
+</html>
