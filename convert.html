@@ -4,6 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPI Payment Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4a4063;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .payment-card {
+            background: linear-gradient(45deg, #ff9a59, #ff5e9e);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            width: 100%;
+        }
+        .success-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 20px auto;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .amount {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .upi-link {
+            background-color: #ffc23c;
+            color: #333;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .upi-link:hover {
+            background-color: #ffd66b;
+        }
+        .back-link {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
     <script>
         function generateUPILink() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -11,18 +79,24 @@
             if (amount) {
                 const upiLink = `upi://pay?pa=9510074375@UPI&pn=ANKIT&cu=INR&am=${amount}`;
                 document.getElementById('upiLink').href = upiLink;
-                document.getElementById('upiLink').textContent = `Pay ₹${amount} via UPI`;
+                document.getElementById('amount').textContent = `${amount} ₹`;
             } else {
-                document.getElementById('upiLink').textContent = 'Invalid amount';
+                document.getElementById('amount').textContent = 'Invalid amount';
             }
         }
         window.onload = generateUPILink;
     </script>
 </head>
 <body>
-    <h1>Your UPI Payment Link</h1>
-    <p>Click the link below to make the payment:</p>
-    <a id="upiLink" href="#">Loading...</a>
-    <p><a href="index.html">Back to Enter Amount</a></p>
+    <div class="payment-card">
+        <div class="success-icon"></div>
+        <p>PAY WITH UPI</p>
+        <div class="profile-pic">
+            <img src="https://m.media-amazon.com/images/I/51hMAuy02sL._AC_UY1100_.jpg" alt="Profile Picture">
+        </div>
+        <div class="name">ANKIT KACHHAWA</div>
+        <div class="amount" id="amount">Loading...</div>
+        <a id="upiLink" href="#" class="upi-link">Pay UPI</a>
+    </div>
 </body>
 </html>
