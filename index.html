@@ -1,52 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>UPI Payment Link Generator</title>
-  <style>
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
-    }
-
-    .input-container {
-      margin-bottom: 20px;
-    }
-
-    .link-container {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .link-container a {
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Amount</title>
 </head>
 <body>
-  <div class="container">
-    <div class="input-container">
-      <label for="amount">Enter Amount:</label>
-      <input type="number" id="amountInput" placeholder="Enter amount">
-    </div>
-    <div class="link-container">
-      <button onclick="generateShareableLink()">Generate Shareable Link</button>
-      <a id="linkOutput" target="_blank" style="display: none;"></a>
-    </div>
-  </div>
-
-  <script>
-    function generateShareableLink() {
-      const amount = document.getElementById("amountInput").value;
-      const upiString = `upi://pay?pa=9510074375@UPI&pn=ANKIT&cu=INR&am=${amount}`;
-      const shareableLink = `https://ankitkachhawa1.github.io/amount/payment.html?amount=${amount}`;
-      const linkOutput = document.getElementById("linkOutput");
-      linkOutput.href = shareableLink;
-      linkOutput.textContent = shareableLink;
-      linkOutput.style.display = "block";
-    }
-  </script>
+    <h1>Enter Amount for UPI Payment</h1>
+    <form action="convert.html" method="get">
+        <label for="amount">Amount (in INR):</label>
+        <input type="number" id="amount" name="amount" step="0.01" min="0" required>
+        <button type="submit">Generate UPI Link</button>
+    </form>
 </body>
 </html>
