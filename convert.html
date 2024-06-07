@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPI Payment Link</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #4a4063;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #614385, #516395);
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -16,60 +18,112 @@
             margin: 0;
         }
         .payment-card {
-            background: linear-gradient(45deg, #ff9a59, #ff5e9e);
-            border-radius: 20px;
-            padding: 85px;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            border-radius: 25px;
+            padding: 40px;
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            max-width: 350px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
             width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .success-icon {
-            font-size: 50px;
+            font-size: 60px;
             margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         .profile-pic {
-            width: 140px;
-            height: 140px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             margin: 20px auto;
             background-color: #f0f0f0;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: rotateIn 1.5s ease-out;
+        }
+        @keyframes rotateIn {
+            from { transform: rotate(-180deg) scale(0.5); opacity: 0; }
+            to { transform: rotate(0deg) scale(1); opacity: 1; }
         }
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .profile-pic:hover img {
+            transform: scale(1.1);
         }
         .name {
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 600;
             margin-bottom: 20px;
+            color: #333;
         }
         .amount {
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 40px;
+            font-weight: 600;
             margin-bottom: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorChange 3s ease-in-out infinite;
+        }
+        @keyframes colorChange {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         .upi-link {
-            background-color: #ffc23c;
+            background: linear-gradient(45deg, #ffd200, #ffa700);
             color: #333;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 15px 35px;
             border-radius: 30px;
-            font-weight: bold;
+            font-weight: 600;
             display: inline-block;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 167, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .upi-link:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.5s ease-in-out;
+        }
+        .upi-link:hover:before {
+            width: 200%;
         }
         .upi-link:hover {
-            background-color: #ffd66b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 167, 0, 0.6);
         }
         .back-link {
             display: block;
-            color: #ccc;
+            color: #ddd;
             text-decoration: none;
             margin-top: 20px;
             font-size: 14px;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #fff;
         }
     </style>
     <script>
@@ -89,7 +143,7 @@
 </head>
 <body>
     <div class="payment-card">
-        <div class="success-icon"></div>
+        <div class="success-icon">💸</div>
         <p>PAY WITH UPI</p>
         <div class="profile-pic">
             <img src="https://m.media-amazon.com/images/I/51hMAuy02sL._AC_UY1100_.jpg" alt="Profile Picture">
