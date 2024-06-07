@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPI Payment Link</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPI Payment Link</title>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
         body {
@@ -14,17 +14,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 90vh;
+            height: 100vh;
             margin: 100;
         }
         .payment-card {
             background: linear-gradient(45deg, #ff9a9e, #fad0c4);
             border-radius: 55px;
-            padding: 50px;
+            padding: 30px;
             text-align: center;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 100%;
+            max-width: 400px;
+            width: 80%;
             animation: fadeIn 1s ease-out;
         }
         @keyframes fadeIn {
@@ -42,8 +42,8 @@
             100% { transform: scale(1); }
         }
         .profile-pic {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             margin: 40px auto;
             background-color: #f0f0f0;
@@ -87,7 +87,7 @@
             background: linear-gradient(45deg, #ffd200, #ffa700);
             color: #333;
             text-decoration: none;
-            padding: 15px 35px;
+            padding: 25px 45px;
             border-radius: 30px;
             font-weight: 600;
             display: inline-block;
@@ -126,7 +126,7 @@
             color: #fff;
         }
     </style>
-    <script>
+<script>
         function generateUPILink() {
             const urlParams = new URLSearchParams(window.location.search);
             const amount = urlParams.get('amount');
@@ -142,15 +142,21 @@
     </script>
 </head>
 <body>
-    <div class="payment-card">
-        <div class="success-icon">💸</div>
-        <p>PAY WITH UPI</p>
-        <div class="profile-pic">
-            <img src="https://i.ibb.co/XxjFS9Y/profile-jpg.jpg" alt="Profile Picture">
-        </div>
-        <div class="name">ANKIT KACHHAWA</div>
-        <div class="amount" id="amount">Loading...</div>
-        <a id="upiLink" href="#" class="upi-link">Pay UPI</a>
-    </div>
+<div class="payment-card">
+<div class="success-icon">💸</div>
+<p>PAY WITH UPI</p>
+<div class="profile-pic">
+<script type="text/javascript" style="display:none">
+//<![CDATA[
+window.__mirage2 = {petok:"tuLlR9zNKStvLa.aeSriaZ.s9yDdVNy0ekNSTyzr_zE-1800-0.0.1.1"};
+//]]>
+</script>
+<script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js"></script>
+<img alt="Profile Picture" data-cfsrc="https://i.ibb.co/XxjFS9Y/profile-jpg.jpg" style="display:none;visibility:hidden;"><noscript><img src="https://i.ibb.co/XxjFS9Y/profile-jpg.jpg" alt="Profile Picture"></noscript>
+</div>
+<div class="name">ANKIT KACHHAWA</div>
+<div class="amount" id="amount">Loading...</div>
+<a id="upiLink" href="#" class="upi-link">Pay UPI</a>
+</div>
 </body>
 </html>
